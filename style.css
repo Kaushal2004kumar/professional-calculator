@@ -1,0 +1,906 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   COLOR SYSTEM
+========================================= */
+
+:root {
+    --body-dark: #07111f;
+    --body-mid: #0b1930;
+    --body-blue: #102a43;
+
+    --violet: #7c3aed;
+    --violet-light: #a78bfa;
+
+    --cyan: #06b6d4;
+    --cyan-light: #67e8f9;
+
+    --calculator-1: #182b40;
+    --calculator-2: #102236;
+
+    --display-1: #0e1d2d;
+    --display-2: #162b40;
+
+    --button-1: #20384d;
+    --button-2: #172d41;
+
+    --text: #e2e8f0;
+    --text-soft: #94a3b8;
+
+    --danger: #e05268;
+    --warning: #d59b3a;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(124, 58, 237, 0.22),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(6, 182, 212, 0.18),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--body-dark),
+            var(--body-mid) 50%,
+            var(--body-blue)
+        );
+}
+
+
+/* =========================================
+   PROFESSIONAL GRID EFFECT
+========================================= */
+
+body {
+    background-image:
+        linear-gradient(
+            rgba(103, 232, 249, 0.035) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(103, 232, 249, 0.035) 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(124, 58, 237, 0.22),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(6, 182, 212, 0.18),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--body-dark),
+            var(--body-mid) 50%,
+            var(--body-blue)
+        );
+
+    background-size:
+        45px 45px,
+        45px 45px,
+        auto,
+        auto,
+        auto;
+}
+
+
+/* =========================================
+   FLOATING PURPLE GLOW
+========================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 480px;
+    height: 480px;
+
+    top: -220px;
+    left: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124, 58, 237, 0.42),
+            rgba(124, 58, 237, 0.12) 35%,
+            transparent 70%
+        );
+
+    filter: blur(35px);
+
+    pointer-events: none;
+
+    animation:
+        purpleFloat 10s ease-in-out infinite alternate;
+}
+
+
+/* =========================================
+   FLOATING CYAN GLOW
+========================================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    right: -220px;
+    bottom: -230px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(6, 182, 212, 0.34),
+            rgba(6, 182, 212, 0.10) 35%,
+            transparent 70%
+        );
+
+    filter: blur(35px);
+
+    pointer-events: none;
+
+    animation:
+        cyanFloat 12s ease-in-out infinite alternate;
+}
+
+
+/* =========================================
+   BACKGROUND ANIMATIONS
+========================================= */
+
+@keyframes purpleFloat {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(100px, 80px)
+            scale(1.15);
+    }
+
+    100% {
+        transform:
+            translate(170px, 20px)
+            scale(0.95);
+    }
+}
+
+
+@keyframes cyanFloat {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-100px, -80px)
+            scale(1.15);
+    }
+
+    100% {
+        transform:
+            translate(-40px, -140px)
+            scale(0.95);
+    }
+}
+
+
+/* =========================================
+   CALCULATOR
+========================================= */
+
+#calculator {
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+    max-width: 420px;
+
+    padding: 26px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 43, 64, 0.96),
+            rgba(16, 34, 54, 0.96)
+        );
+
+    border:
+        1px solid
+        rgba(103, 232, 249, 0.13);
+
+    box-shadow:
+        0 30px 70px
+        rgba(0, 0, 0, 0.45),
+
+        0 0 35px
+        rgba(124, 58, 237, 0.08),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.06);
+
+    backdrop-filter: blur(18px);
+
+    animation:
+        calculatorAppear
+        0.8s
+        cubic-bezier(.16, 1, .3, 1);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+
+/* Calculator hover effect */
+
+#calculator:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(103, 232, 249, 0.25);
+
+    box-shadow:
+        0 38px 80px
+        rgba(0, 0, 0, 0.50),
+
+        0 0 45px
+        rgba(124, 58, 237, 0.14),
+
+        0 0 20px
+        rgba(6, 182, 212, 0.06),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.08);
+}
+
+
+@keyframes calculatorAppear {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(0.90)
+            rotateX(8deg);
+    }
+
+    70% {
+        opacity: 1;
+
+        transform:
+            translateY(-5px)
+            scale(1.015);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.calculator-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+
+    color: var(--text);
+
+    font-size: 21px;
+
+    font-weight: 750;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* Status light */
+
+.calculator-header::after {
+    content: "";
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan-light),
+            var(--cyan)
+        );
+
+    box-shadow:
+        0 0 7px var(--cyan),
+        0 0 15px var(--cyan);
+
+    animation:
+        statusPulse 2s ease-in-out infinite;
+}
+
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+
+        opacity: 0.65;
+
+        box-shadow:
+            0 0 6px var(--cyan);
+    }
+
+    50% {
+        transform: scale(1.4);
+
+        opacity: 1;
+
+        box-shadow:
+            0 0 10px var(--cyan),
+            0 0 22px var(--cyan);
+    }
+}
+
+
+/* =========================================
+   DISPLAY
+========================================= */
+
+#display {
+    width: 100%;
+    height: 92px;
+
+    padding: 15px 20px;
+
+    color: #dbeafe;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--display-1),
+            var(--display-2)
+        );
+
+    border:
+        1px solid
+        rgba(103, 232, 249, 0.10);
+
+    border-radius: 17px;
+
+    outline: none;
+
+    text-align: right;
+
+    font-size: 42px;
+
+    font-weight: 650;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        inset 5px 5px 12px
+        rgba(0, 0, 0, 0.25),
+
+        inset -3px -3px 8px
+        rgba(255, 255, 255, 0.025);
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+#display:focus {
+    border-color:
+        rgba(103, 232, 249, 0.35);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(6, 182, 212, 0.08),
+
+        0 0 18px
+        rgba(6, 182, 212, 0.10),
+
+        inset 5px 5px 12px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+#display::placeholder {
+    color: var(--text-soft);
+
+    opacity: 0.65;
+}
+
+
+/* =========================================
+   BUTTON GRID
+========================================= */
+
+.buttons {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   NORMAL BUTTONS
+========================================= */
+
+button {
+    position: relative;
+
+    height: 62px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(148, 163, 184, 0.10);
+
+    border-radius: 14px;
+
+    color: #dbe7ef;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--button-1),
+            var(--button-2)
+        );
+
+    font-size: 18px;
+
+    font-weight: 650;
+
+    cursor: pointer;
+
+    box-shadow:
+        5px 7px 14px
+        rgba(0, 0, 0, 0.25),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.035);
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        color 0.22s ease;
+}
+
+
+/* Hover */
+
+button:hover {
+    transform:
+        translateY(-4px)
+        scale(1.015);
+
+    color: #ffffff;
+
+    border-color:
+        rgba(103, 232, 249, 0.20);
+
+    box-shadow:
+        0 10px 22px
+        rgba(0, 0, 0, 0.30),
+
+        0 0 14px
+        rgba(6, 182, 212, 0.08);
+}
+
+
+/* Active */
+
+button:active {
+    transform:
+        translateY(1px)
+        scale(0.94);
+
+    box-shadow:
+        inset 4px 4px 9px
+        rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   RIPPLE EFFECT
+========================================= */
+
+button::after {
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    left: 50%;
+    top: 50%;
+
+    border-radius: 50%;
+
+    background:
+        rgba(103, 232, 249, 0.20);
+
+    transform:
+        translate(-50%, -50%);
+
+    transition:
+        width 0.45s ease,
+        height 0.45s ease,
+        opacity 0.45s ease;
+}
+
+
+button:active::after {
+    width: 150px;
+    height: 150px;
+
+    opacity: 0;
+}
+
+
+/* =========================================
+   OPERATOR BUTTONS
+========================================= */
+
+.operator {
+    color: #c4b5fd;
+
+    background:
+        linear-gradient(
+            145deg,
+            #273158,
+            #20294a
+        );
+}
+
+
+.operator:hover {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b21b6,
+            #4338ca
+        );
+
+    border-color:
+        rgba(167, 139, 250, 0.40);
+
+    box-shadow:
+        0 10px 22px
+        rgba(124, 58, 237, 0.25),
+
+        0 0 18px
+        rgba(124, 58, 237, 0.15);
+}
+
+
+/* =========================================
+   CLEAR BUTTON
+========================================= */
+
+#clear {
+    grid-column: 4;
+    grid-row: 1;
+
+    color: #ff9aaa;
+
+    background:
+        linear-gradient(
+            145deg,
+            #442533,
+            #351d29
+        );
+}
+
+
+#clear:hover {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c2415c,
+            #9f1239
+        );
+
+    border-color:
+        rgba(255, 154, 170, 0.35);
+
+    box-shadow:
+        0 10px 22px
+        rgba(194, 65, 92, 0.30),
+
+        0 0 18px
+        rgba(194, 65, 92, 0.15);
+}
+
+
+/* =========================================
+   DELETE BUTTON
+========================================= */
+
+#delete {
+    grid-column: 4;
+    grid-row: 2;
+
+    color: #f5c76d;
+
+    background:
+        linear-gradient(
+            145deg,
+            #443820,
+            #342a19
+        );
+}
+
+
+#delete:hover {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b7791f,
+            #92400e
+        );
+
+    border-color:
+        rgba(245, 199, 109, 0.35);
+
+    box-shadow:
+        0 10px 22px
+        rgba(183, 121, 31, 0.28);
+}
+
+
+/* =========================================
+   EQUAL BUTTON
+========================================= */
+
+#equal {
+    grid-column: 1 / span 3;
+    grid-row: 5;
+
+    width: 100%;
+    height: 62px;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            110deg,
+            #4338ca,
+            #7c3aed,
+            #0891b2,
+            #0d9488,
+            #4338ca
+        );
+
+    background-size: 400% 100%;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(67, 56, 202, 0.30),
+
+        0 0 18px
+        rgba(6, 182, 212, 0.08);
+
+    animation:
+        equalGradient 5s ease infinite;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+#equal:hover {
+    transform:
+        translateY(-5px)
+        scale(1.015);
+
+    box-shadow:
+        0 16px 30px
+        rgba(67, 56, 202, 0.40),
+
+        0 0 25px
+        rgba(6, 182, 212, 0.18);
+}
+
+
+#equal:active {
+    transform: scale(0.96);
+}
+
+
+@keyframes equalGradient {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* =========================================
+   JAVASCRIPT PRESSED EFFECT
+========================================= */
+
+.pressed {
+    transform:
+        scale(0.93) !important;
+
+    box-shadow:
+        inset 4px 4px 9px
+        rgba(0, 0, 0, 0.35) !important;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px;
+    }
+
+    #calculator {
+        padding: 20px;
+
+        border-radius: 23px;
+    }
+
+    #display {
+        height: 80px;
+
+        font-size: 34px;
+    }
+
+    button {
+        height: 56px;
+
+        font-size: 17px;
+    }
+
+    #equal {
+        height: 56px;
+
+        font-size: 28px;
+    }
+}
+
+
+@media (max-width: 350px) {
+
+    .buttons {
+        gap: 8px;
+    }
+
+    button {
+        height: 52px;
+
+        border-radius: 11px;
+    }
+
+    #equal {
+        height: 52px;
+
+        font-size: 25px;
+    }
+}

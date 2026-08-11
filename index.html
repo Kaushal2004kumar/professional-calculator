@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Professional responsive calculator"
+    >
+
+    <title>Professional Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main id="calculator">
+
+        <!-- Calculator Header -->
+        <div class="calculator-header">
+            <span>Calculator</span>
+        </div>
+
+
+        <!-- Display -->
+        <input
+            id="display"
+            type="text"
+            readonly
+            placeholder="0"
+            aria-label="Calculator display"
+        >
+
+
+        <!-- Calculator Buttons -->
+        <div class="buttons">
+
+            <!-- Row 1 -->
+            <button type="button">7</button>
+            <button type="button">8</button>
+            <button type="button">9</button>
+
+            <button
+                id="clear"
+                type="button"
+            >
+                C
+            </button>
+
+
+            <!-- Row 2 -->
+            <button type="button">4</button>
+            <button type="button">5</button>
+            <button type="button">6</button>
+
+            <button
+                id="delete"
+                type="button"
+            >
+                DEL
+            </button>
+
+
+            <!-- Row 3 -->
+            <button type="button">1</button>
+            <button type="button">2</button>
+            <button type="button">3</button>
+
+            <button
+                class="operator"
+                type="button"
+            >
+                /
+            </button>
+
+
+            <!-- Row 4 -->
+            <button type="button">0</button>
+
+            <button type="button">
+                .
+            </button>
+
+            <button
+                class="operator"
+                type="button"
+            >
+                +
+            </button>
+
+            <button
+                class="operator"
+                type="button"
+            >
+                -
+            </button>
+
+
+            <!-- Row 5 -->
+            <button
+                id="equal"
+                type="button"
+            >
+                =
+            </button>
+
+            <button
+                class="operator"
+                type="button"
+            >
+                *
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
